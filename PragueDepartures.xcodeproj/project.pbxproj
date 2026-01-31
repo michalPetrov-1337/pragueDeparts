@@ -6,8 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F049DFD62F2E992400B699E4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049DFD52F2E978400B699E4 /* LocationManager.swift */; };
+		F049DFDB2F2E9C6200B699E4 /* GolemioClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049DFDA2F2E9C3D00B699E4 /* GolemioClient.swift */; };
+		F049DFE02F2E9ED000B699E4 /* DepartureModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049DFDF2F2E9E0D00B699E4 /* DepartureModels.swift */; };
+		F049DFE52F2EA56700B699E4 /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F049DFE42F2EA55600B699E4 /* Secrets.xcconfig */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		F049DFBB2F2E920F00B699E4 /* PragueDepartures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PragueDepartures.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F049DFD42F2E974800B699E4 /* SharedCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedCache.swift; sourceTree = "<group>"; };
+		F049DFD52F2E978400B699E4 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		F049DFDA2F2E9C3D00B699E4 /* GolemioClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolemioClient.swift; sourceTree = "<group>"; };
+		F049DFDF2F2E9E0D00B699E4 /* DepartureModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureModels.swift; sourceTree = "<group>"; };
+		F049DFE42F2EA55600B699E4 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +44,15 @@
 		F049DFB22F2E920F00B699E4 = {
 			isa = PBXGroup;
 			children = (
+				F049DFE42F2EA55600B699E4 /* Secrets.xcconfig */,
+				F049DFD32F2E96E500B699E4 /* Shared */,
+				F049DFD22F2E96DC00B699E4 /* Widget */,
+				F049DFD12F2E96D200B699E4 /* Views */,
+				F049DFD02F2E96CA00B699E4 /* ViewModels */,
+				F049DFCF2F2E96C200B699E4 /* Location */,
+				F049DFCE2F2E96B800B699E4 /* Networking */,
+				F049DFCD2F2E96AF00B699E4 /* Models */,
+				F049DFCC2F2E96A300B699E4 /* App */,
 				F049DFBD2F2E920F00B699E4 /* PragueDepartures */,
 				F049DFBC2F2E920F00B699E4 /* Products */,
 			);
@@ -43,6 +64,66 @@
 				F049DFBB2F2E920F00B699E4 /* PragueDepartures.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F049DFCC2F2E96A300B699E4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F049DFCD2F2E96AF00B699E4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F049DFDF2F2E9E0D00B699E4 /* DepartureModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F049DFCE2F2E96B800B699E4 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F049DFDA2F2E9C3D00B699E4 /* GolemioClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F049DFCF2F2E96C200B699E4 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				F049DFD52F2E978400B699E4 /* LocationManager.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		F049DFD02F2E96CA00B699E4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F049DFD12F2E96D200B699E4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F049DFD22F2E96DC00B699E4 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		F049DFD32F2E96E500B699E4 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F049DFD42F2E974800B699E4 /* SharedCache.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,6 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F049DFE52F2EA56700B699E4 /* Secrets.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +201,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F049DFE02F2E9ED000B699E4 /* DepartureModels.swift in Sources */,
+				F049DFD62F2E992400B699E4 /* LocationManager.swift in Sources */,
+				F049DFDB2F2E9C6200B699E4 /* GolemioClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +212,7 @@
 /* Begin XCBuildConfiguration section */
 		F049DFC62F2E921200B699E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F049DFE42F2EA55600B699E4 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -248,19 +334,24 @@
 		};
 		F049DFC92F2E921200B699E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F049DFE42F2EA55600B699E4 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PragueDepartures/PragueDepartures.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FDRMV7YQP3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Automatically swtich nearby favourite stops";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Shows nearby public transport departures";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -283,16 +374,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PragueDepartures/PragueDepartures.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FDRMV7YQP3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Automatically swtich nearby favourite stops";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Shows nearby public transport departures";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

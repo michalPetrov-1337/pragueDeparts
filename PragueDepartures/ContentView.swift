@@ -1,61 +1,79 @@
-//
-//  ContentView.swift
-//  PragueDepartures
-//
-//  Created by Michal Petrov on 31.01.2026.
-//
-
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @StateObject private var vm = DeparturesDebugViewModel()
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
-        }
-    }
+        NavigationStack {
+           
+            VStack(spacing: 12) {
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
+                // BUTTON
+                Button("Fetch departures") {
+                    Task { await vm.fetchByName() }
+                }
+                .buttonStyle(.borderedProminent)
 
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
+                // STATUS TEXT
+                Text(vm.statusText)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                // ERROR TEXT
+                if let error = vm.errorText {
+                    Text(error)
+                        .font(.caption)
+                        .foregroundStyle(.red)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+
+                // 👉 THIS IS YOUR DEPARTURES BLOCK
+                if let board = vm.board,
+                   let stopWithDeps = board.stops.first(where: { ($0.departures?.isEmpty == false) }),
+                   let departures = stopWithDeps.departures {
+
+                    // STOP NAME
+                    Text(stopWithDeps.stop_name)
+                        .font(.headline)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                    // LIST OF DEPARTURES
+                    List(Array(departures.prefix(10))) { dep in
+                        HStack {
+
+                            Text(dep.route?.short_name ?? "?")
+                                .bold()
+                                .frame(width: 44, alignment: .leading)
+
+                            Text(dep.trip?.headsign ?? dep.direction ?? "Unknown")
+                                .font(.subheadline)
+
+                            Spacer()
+
+                            if let delay = dep.delay, delay > 0 {
+                                Text("+\(delay) min")
+                                    .foregroundStyle(.red)
+                            }
+                        }
+                    }
+                    .listStyle(.plain)
+
+                } else {
+                    Text("No departures found in this response")
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+
+                Spacer(minLength: 0)
+
+            } // 👈 VStack ENDS HERE
+            .padding()
+            .navigationTitle("Departures")
         }
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }
